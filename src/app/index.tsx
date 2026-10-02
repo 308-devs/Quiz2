@@ -1,30 +1,33 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function App(): React.JSX.Element {
   const [p1, setp1] = useState<string>("");
   const [p2, setp2] = useState<string>("");
   const [p1store, setp1store] = useState<string>("");
   const [p2store, setp2store] = useState<string>("");
+  const [winner, setwinner] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [greeting, setGreeting] = useState<string>("");
 
   const handlePress = () => {
+    if (p1store == p2store) {
+      setwinner("เสมอ");
+    } else if (p1store == "Scissors" && p2store == "Paper") {
+      setwinner("P1 ชนะ");
+    } else if (p1store == "Rock" && p2store == "Scissors") {
+      setwinner("P1 ชนะ");
+    } else if (p1store == "Paper" && p2store == "Rock") {
+      setwinner("P1 ชนะ");
+    } else {
+      setwinner("P2 ชนะ");
+    }
     setp1(p1store);
     setp2(p2store);
   };
-  const p1playing = (
-    P1playing: "Rock" | "Paper" | "Scissors",
-    P2playing: "Rock" | "Paper" | "Scissors",
-  ) => {};
   return (
     <View style={styles.container}>
+      <Text style={styles.wintext}>{winner}</Text>
       <Text style={styles.title}>
         <Text style={styles.row}>
           <Text style={styles.Played}>P1 "{p1}"</Text>
@@ -33,12 +36,6 @@ export default function App(): React.JSX.Element {
         </Text>
       </Text>
       <View style={styles.row}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter name"
-          value={name}
-          onChangeText={setName}
-        />
         <TouchableOpacity style={styles.button} onPress={handlePress}>
           <Text style={styles.buttonText}>Hello</Text>
         </TouchableOpacity>
@@ -68,7 +65,10 @@ export default function App(): React.JSX.Element {
             </TouchableOpacity>
           </View>
         </View>
-        <Text></Text>
+        <View style={styles.col}>
+          <Text style={styles.Played}> | </Text>
+          <Text style={styles.Played}> | </Text>
+        </View>
         <View style={styles.col}>
           <Text style={styles.Played}>P2</Text>
           <View style={styles.row}>
@@ -156,5 +156,10 @@ const styles = StyleSheet.create({
   },
   col: {
     flexDirection: "column",
+  },
+  wintext: {
+    fontSize: 124,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
