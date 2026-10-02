@@ -8,6 +8,8 @@ import {
 } from "react-native";
 
 export default function App(): React.JSX.Element {
+  const [p1, setp1] = useState<string>("Rock");
+  const [p2, setp2] = useState<string>("Rock");
   const [name, setName] = useState<string>("");
   const [greeting, setGreeting] = useState<string>("");
 
@@ -21,7 +23,13 @@ export default function App(): React.JSX.Element {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello</Text>
+      <Text style={styles.title}>
+        <Text style={styles.row}>
+          <Text style={styles.Played}>P1 "{p1}"</Text>
+          <Text style={styles.versus}> Versus </Text>
+          <Text style={styles.Played}>P2 "{p2}"</Text>
+        </Text>
+      </Text>
       <View style={styles.row}>
         <TextInput
           style={styles.input}
@@ -81,5 +89,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+  },
+  versus: {
+    fontSize: 62,
+    fontWeight: "bold",
+  },
+  Played: {
+    fontSize: 62,
+    fontWeight: "bold",
   },
 });
