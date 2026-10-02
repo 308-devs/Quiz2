@@ -14,13 +14,25 @@ export default function App(): React.JSX.Element {
   const [greeting, setGreeting] = useState<string>("");
 
   const handlePress = () => {
-    if (name.trim()) {
-      setGreeting(`Hello ${name.trim()}`);
-    } else {
-      setGreeting("");
+    setp1;
+    setp2;
+  };
+  const p1playing = (
+    P1playing: "Rock" | "Paper" | "Scissors",
+    P2playing: "Rock" | "Paper" | "Scissors",
+  ) => {
+    switch (playing) {
+      case "Rock":
+        p1 = "Rock";
+        break;
+      case "Paper":
+        p1 = "Paper";
+        break;
+      case "Scissors":
+        p1 = "Scissors";
+        break;
     }
   };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -42,6 +54,29 @@ export default function App(): React.JSX.Element {
         </TouchableOpacity>
       </View>
       {greeting !== "" && <Text style={styles.greetingText}>{greeting}</Text>}
+      <View style={styles.col}>
+        <Text style={styles.Played}>P1</Text>
+        <View style={styles.row}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => p1playing("Rock")}
+          >
+            Rock
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => p1playing("Paper")}
+          >
+            Paper
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => p1playing("Scissors")}
+          >
+            Scissors
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }
@@ -55,9 +90,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   row: {
-    flexDirection: "row", // จัด TextInput กับ Button ให้อยู่แถวเดียวกัน
+    flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
+    justifyContent: "space-between",
   },
   input: {
     borderWidth: 1,
@@ -97,5 +133,11 @@ const styles = StyleSheet.create({
   Played: {
     fontSize: 62,
     fontWeight: "bold",
+  },
+  rpsrow: {
+    flexDirection: "row",
+  },
+  col: {
+    flexDirection: "column",
   },
 });
