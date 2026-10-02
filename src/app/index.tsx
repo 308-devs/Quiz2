@@ -37,10 +37,10 @@ export default function App(): React.JSX.Element {
       </Text>
       <View style={styles.row}>
         <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Text style={styles.buttonText}>Hello</Text>
+          <Text style={styles.buttonText}>แสดงผล</Text>
         </TouchableOpacity>
       </View>
-      {greeting !== "" && <Text style={styles.greetingText}>{greeting}</Text>}
+
       <View style={styles.row}>
         <View style={styles.col}>
           <Text style={styles.Played}>P1</Text>
