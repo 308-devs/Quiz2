@@ -8,31 +8,21 @@ import {
 } from "react-native";
 
 export default function App(): React.JSX.Element {
-  const [p1, setp1] = useState<string>("Rock");
-  const [p2, setp2] = useState<string>("Rock");
+  const [p1, setp1] = useState<string>("");
+  const [p2, setp2] = useState<string>("");
+  const [p1store, setp1store] = useState<string>("");
+  const [p2store, setp2store] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [greeting, setGreeting] = useState<string>("");
 
   const handlePress = () => {
-    setp1;
-    setp2;
+    setp1(p1store);
+    setp2(p2store);
   };
   const p1playing = (
     P1playing: "Rock" | "Paper" | "Scissors",
     P2playing: "Rock" | "Paper" | "Scissors",
-  ) => {
-    switch (playing) {
-      case "Rock":
-        p1 = "Rock";
-        break;
-      case "Paper":
-        p1 = "Paper";
-        break;
-      case "Scissors":
-        p1 = "Scissors";
-        break;
-    }
-  };
+  ) => {};
   return (
     <View style={styles.container}>
       <Text style={styles.title}>
@@ -54,27 +44,53 @@ export default function App(): React.JSX.Element {
         </TouchableOpacity>
       </View>
       {greeting !== "" && <Text style={styles.greetingText}>{greeting}</Text>}
-      <View style={styles.col}>
-        <Text style={styles.Played}>P1</Text>
-        <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => p1playing("Rock")}
-          >
-            Rock
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => p1playing("Paper")}
-          >
-            Paper
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => p1playing("Scissors")}
-          >
-            Scissors
-          </TouchableOpacity>
+      <View style={styles.row}>
+        <View style={styles.col}>
+          <Text style={styles.Played}>P1</Text>
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp1store("Rock")}
+            >
+              Rock
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp1store("Paper")}
+            >
+              Paper
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp1store("Scissors")}
+            >
+              Scissors
+            </TouchableOpacity>
+          </View>
+        </View>
+        <Text></Text>
+        <View style={styles.col}>
+          <Text style={styles.Played}>P2</Text>
+          <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp2store("Rock")}
+            >
+              Rock
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp2store("Paper")}
+            >
+              Paper
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => setp2store("Scissors")}
+            >
+              Scissors
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -133,6 +149,7 @@ const styles = StyleSheet.create({
   Played: {
     fontSize: 62,
     fontWeight: "bold",
+    textAlign: "center",
   },
   rpsrow: {
     flexDirection: "row",
