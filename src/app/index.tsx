@@ -53,19 +53,19 @@ export default function App(): React.JSX.Element {
               style={styles.button}
               onPress={() => setp1store("Rock")}
             >
-              <Text>Rock</Text>
+              <Text style={styles.buttonText}>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp1store("Paper")}
             >
-              <Text>Paper</Text>
+              <Text style={styles.buttonText}>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp1store("Scissors")}
             >
-              <Text>Scissors</Text>
+              <Text style={styles.buttonText}>Scissors</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -80,19 +80,19 @@ export default function App(): React.JSX.Element {
               style={styles.button}
               onPress={() => setp2store("Rock")}
             >
-              <Text>Rock</Text>
+              <Text style={styles.buttonText}>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp2store("Paper")}
             >
-              <Text>Paper</Text>
+              <Text style={styles.buttonText}>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp2store("Scissors")}
             >
-              <Text>Scissors</Text>
+              <Text style={styles.buttonText}>Scissors</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 6,
+    marginHorizontal: 5,
   },
   buttonText: {
     color: "#fff",
