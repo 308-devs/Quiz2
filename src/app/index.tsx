@@ -42,17 +42,19 @@ export default function App(): React.JSX.Element {
         </Text>
       </Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Text testID="btn-submit" style={styles.buttonText}>
-            แสดงผล
-          </Text>
+        <TouchableOpacity
+          testID="btn-submit"
+          style={styles.button}
+          onPress={handlePress}
+        >
+          <Text style={styles.buttonText}>แสดงผล</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
         <View style={styles.col}>
           <Text style={styles.Played}>P1</Text>
-          <View style={styles.row}>
+          <View style={styles.buttonrow}>
             <TouchableOpacity
               testID="p1-rock"
               style={styles.button}
@@ -82,7 +84,7 @@ export default function App(): React.JSX.Element {
         </View>
         <View style={styles.col}>
           <Text style={styles.Played}>P2</Text>
-          <View style={styles.row}>
+          <View style={styles.buttonrow}>
             <TouchableOpacity
               testID="p2-rock"
               style={styles.button}
@@ -125,6 +127,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     justifyContent: "space-between",
   },
+  buttonrow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+    maxWidth: "100%",
+  },
   input: {
     borderWidth: 1,
     borderColor: "#ccc",
@@ -137,15 +145,15 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#007AFF",
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 6,
-    marginHorizontal: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    borderRadius: 3,
+    marginHorizontal: 2,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 14,
   },
   greetingText: {
     fontSize: 20,
@@ -153,16 +161,16 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   title: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: "bold",
     marginBottom: 20,
   },
   versus: {
-    fontSize: 62,
+    fontSize: 16,
     fontWeight: "bold",
   },
   Played: {
-    fontSize: 62,
+    fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -173,7 +181,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   wintext: {
-    fontSize: 124,
+    fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
   },
