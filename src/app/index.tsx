@@ -31,7 +31,9 @@ export default function App(): React.JSX.Element {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.wintext}>{winner}</Text>
+      <Text testID="text-winner" style={styles.wintext}>
+        {winner}
+      </Text>
       <Text style={styles.title}>
         <Text style={styles.row}>
           <Text style={styles.Played}>P1 "{p1}"</Text>
@@ -41,7 +43,9 @@ export default function App(): React.JSX.Element {
       </Text>
       <View style={styles.row}>
         <TouchableOpacity style={styles.button} onPress={handlePress}>
-          <Text style={styles.buttonText}>แสดงผล</Text>
+          <Text testID="btn-submit" style={styles.buttonText}>
+            แสดงผล
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -50,18 +54,21 @@ export default function App(): React.JSX.Element {
           <Text style={styles.Played}>P1</Text>
           <View style={styles.row}>
             <TouchableOpacity
+              testID="p1-rock"
               style={styles.button}
               onPress={() => setp1store("Rock")}
             >
               <Text style={styles.buttonText}>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              testID="p1-paper"
               style={styles.button}
               onPress={() => setp1store("Paper")}
             >
               <Text style={styles.buttonText}>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              testID="p1-scissors"
               style={styles.button}
               onPress={() => setp1store("Scissors")}
             >
@@ -77,18 +84,21 @@ export default function App(): React.JSX.Element {
           <Text style={styles.Played}>P2</Text>
           <View style={styles.row}>
             <TouchableOpacity
+              testID="p2-rock"
               style={styles.button}
               onPress={() => setp2store("Rock")}
             >
               <Text style={styles.buttonText}>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              testID="p2-paper"
               style={styles.button}
               onPress={() => setp2store("Paper")}
             >
               <Text style={styles.buttonText}>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              testID="p2-scissors"
               style={styles.button}
               onPress={() => setp2store("Scissors")}
             >
