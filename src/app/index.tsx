@@ -11,16 +11,20 @@ export default function App(): React.JSX.Element {
   const [greeting, setGreeting] = useState<string>("");
 
   const handlePress = () => {
-    if (p1store == p2store) {
-      setwinner("เสมอ");
-    } else if (p1store == "Scissors" && p2store == "Paper") {
-      setwinner("P1 ชนะ");
-    } else if (p1store == "Rock" && p2store == "Scissors") {
-      setwinner("P1 ชนะ");
-    } else if (p1store == "Paper" && p2store == "Rock") {
-      setwinner("P1 ชนะ");
+    if (p1store && p2store !== "") {
+      if (p1store == p2store) {
+        setwinner("เสมอ");
+      } else if (p1store == "Scissors" && p2store == "Paper") {
+        setwinner("P1 ชนะ");
+      } else if (p1store == "Rock" && p2store == "Scissors") {
+        setwinner("P1 ชนะ");
+      } else if (p1store == "Paper" && p2store == "Rock") {
+        setwinner("P1 ชนะ");
+      } else {
+        setwinner("P2 ชนะ");
+      }
     } else {
-      setwinner("P2 ชนะ");
+      setwinner("Both players must choose an option.");
     }
     setp1(p1store);
     setp2(p2store);
@@ -49,19 +53,19 @@ export default function App(): React.JSX.Element {
               style={styles.button}
               onPress={() => setp1store("Rock")}
             >
-              Rock
+              <Text>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp1store("Paper")}
             >
-              Paper
+              <Text>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp1store("Scissors")}
             >
-              Scissors
+              <Text>Scissors</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -76,19 +80,19 @@ export default function App(): React.JSX.Element {
               style={styles.button}
               onPress={() => setp2store("Rock")}
             >
-              Rock
+              <Text>Rock</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp2store("Paper")}
             >
-              Paper
+              <Text>Paper</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => setp2store("Scissors")}
             >
-              Scissors
+              <Text>Scissors</Text>
             </TouchableOpacity>
           </View>
         </View>
