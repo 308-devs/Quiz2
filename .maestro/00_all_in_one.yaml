@@ -1,0 +1,106 @@
+appId: com.anonymous.quiz2
+---
+- launchApp:
+    clearState: true
+
+# ===== ส่วนที่ 1: เลือกไม่ครบ =====
+# 1) ยังไม่เลือกใครเลย แล้วกดแสดงผล
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "Both players must choose an option."
+
+# 2) P1 เลือก Rock แต่ P2 ยังไม่เลือก
+- tapOn:
+    id: "p1-rock"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "Both players must choose an option."
+
+# ===== ส่วนที่ 2: เลือกครบ ไล่ทั้ง 9 คู่ (เปลี่ยนทีละฝั่ง) =====
+# 3) Rock vs Rock = เสมอ
+- tapOn:
+    id: "p2-rock"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "เสมอ"
+
+# 4) Rock vs Paper = P2 ชนะ  (Test case P2 Win)
+- tapOn:
+    id: "p2-paper"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P2 ชนะ"
+- assertVisible: ".*P1 \"Rock\".*P2 \"Paper\".*"
+
+# 5) Rock vs Scissors = P1 ชนะ
+- tapOn:
+    id: "p2-scissors"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P1 ชนะ"
+
+# 6) Paper vs Scissors = P2 ชนะ
+- tapOn:
+    id: "p1-paper"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P2 ชนะ"
+
+# 7) Paper vs Paper = เสมอ  (Test case เสมอ)
+- tapOn:
+    id: "p2-paper"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "เสมอ"
+- assertVisible: ".*P1 \"Paper\".*P2 \"Paper\".*"
+
+# 8) Paper vs Rock = P1 ชนะ
+- tapOn:
+    id: "p2-rock"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P1 ชนะ"
+
+# 9) Scissors vs Rock = P2 ชนะ
+- tapOn:
+    id: "p1-scissors"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P2 ชนะ"
+
+# 10) Scissors vs Paper = P1 ชนะ  (Test case P1 Win)
+- tapOn:
+    id: "p2-paper"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "P1 ชนะ"
+- assertVisible: ".*P1 \"Scissors\".*P2 \"Paper\".*"
+
+# 11) Scissors vs Scissors = เสมอ
+- tapOn:
+    id: "p2-scissors"
+- tapOn:
+    id: "btn-submit"
+- assertVisible:
+    id: "text-winner"
+    text: "เสมอ"
